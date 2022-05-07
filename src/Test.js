@@ -1,37 +1,54 @@
 import React, { useState } from "react";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@mui/material";
+import { Autocomplete, TextField } from "@mui/material";
 import { Box } from "@mui/system";
+const state = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jammu and Kashmir",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttarakhand",
+  "Uttar Pradesh",
+  "West Bengal",
+  "Andaman and Nicobar Islands",
+  "Chandigarh",
+  "Dadra and Nagar Haveli",
+  "Daman and Diu",
+  "Delhi",
+  "Lakshadweep",
+  "Puducherry",
+];
 const Test = () => {
-  const [accordion, setAccordion] = useState("");
   return (
     <Box>
-      <Accordion
-        expanded={accordion === "test1"}
-        onChange={() => setAccordion("test1")}
-      >
-        <AccordionSummary expandIcon={">"}>
-          <Typography>Test 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>My name i Nikhil. I run this YT Channel</Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={accordion === "test2"}
-        onChange={() => setAccordion("test2")}
-      >
-        <AccordionSummary expandIcon={">"}>
-          <Typography>Test 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>My name i Nikhil. I run this YT Channel</Typography>
-        </AccordionDetails>
-      </Accordion>
+      <Autocomplete
+        sx={{ width: 300 }}
+        options={state}
+        renderInput={(params) => (
+          <TextField {...params} label="List of States" />
+        )}
+      />
     </Box>
   );
 };
