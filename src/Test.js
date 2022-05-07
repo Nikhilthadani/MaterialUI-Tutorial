@@ -1,28 +1,38 @@
-import React from "react";
-import { Container } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Collapse,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import { Box } from "@mui/system";
+const array = ["First", "Second", "Third", "Fourth", "Fifth"];
 const Test = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <div>
-      <Container sx={{ background: "green" }} maxWidth="xs">
-        This is XS
-      </Container>
-      <br />
-      <Container sx={{ background: "green" }} maxWidth="sm">
-        This is SM
-      </Container>
-      <br />
-      <Container sx={{ background: "green" }} maxWidth="md">
-        This is MD
-      </Container>
-      <br />
-      <Container sx={{ background: "green" }} maxWidth="lg">
-        This is LG
-      </Container>
-      <br />
-      <Container sx={{ background: "green" }} maxWidth="xl">
-        This is XL
-      </Container>
-    </div>
+    <Box>
+      <List>
+        <ListItem divider>
+          <ListItemButton onClick={() => setOpen(true)}>
+            <ListItemIcon>{">"}</ListItemIcon>
+            <ListItemText primary={"Expand List"} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Collapse in={open}>
+        <List sx={{ marginLeft: 25 }}>
+          {array.map((listElm) => (
+            <ListItem divider>
+              <ListItemButton onClick={() => setOpen(false)}>
+                <ListItemText primary={listElm} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Collapse>
+    </Box>
   );
 };
 
