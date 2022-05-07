@@ -1,37 +1,37 @@
 import React, { useState } from "react";
 import {
-  Collapse,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-const array = ["First", "Second", "Third", "Fourth", "Fifth"];
 const Test = () => {
-  const [open, setOpen] = useState(false);
+  const [accordion, setAccordion] = useState("");
   return (
     <Box>
-      <List>
-        <ListItem divider>
-          <ListItemButton onClick={() => setOpen(true)}>
-            <ListItemIcon>{">"}</ListItemIcon>
-            <ListItemText primary={"Expand List"} />
-          </ListItemButton>
-        </ListItem>
-      </List>
-      <Collapse in={open}>
-        <List sx={{ marginLeft: 25 }}>
-          {array.map((listElm) => (
-            <ListItem divider>
-              <ListItemButton onClick={() => setOpen(false)}>
-                <ListItemText primary={listElm} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Collapse>
+      <Accordion
+        expanded={accordion === "test1"}
+        onChange={() => setAccordion("test1")}
+      >
+        <AccordionSummary expandIcon={">"}>
+          <Typography>Test 1</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>My name i Nikhil. I run this YT Channel</Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={accordion === "test2"}
+        onChange={() => setAccordion("test2")}
+      >
+        <AccordionSummary expandIcon={">"}>
+          <Typography>Test 2</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>My name i Nikhil. I run this YT Channel</Typography>
+        </AccordionDetails>
+      </Accordion>
     </Box>
   );
 };
