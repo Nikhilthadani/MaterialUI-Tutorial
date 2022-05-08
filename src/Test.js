@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { Alert } from "@mui/material";
+import { Alert, Snackbar } from "@mui/material";
 import { Box } from "@mui/system";
 const Test = () => {
-  const [show, setShow] = useState(true);
+  const [open, setOpen] = useState(true);
   return (
     <Box>
-      {show && (
-        <Alert onClose={() => setShow(false)} severity="info">
-          This is an Info Alert
-        </Alert>
-      )}
+      <Snackbar
+        onClose={() => setOpen(false)}
+        autoHideDuration={2000}
+        open={open}
+      >
+        <Alert severity="success">This is a sucess message</Alert>
+      </Snackbar>
     </Box>
   );
 };
