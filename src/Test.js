@@ -1,54 +1,27 @@
 import React, { useState } from "react";
-import { Autocomplete, TextField } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 import { Box } from "@mui/system";
-const state = [
-  "Andhra Pradesh",
-  "Arunachal Pradesh",
-  "Assam",
-  "Bihar",
-  "Chhattisgarh",
-  "Goa",
-  "Gujarat",
-  "Haryana",
-  "Himachal Pradesh",
-  "Jammu and Kashmir",
-  "Jharkhand",
-  "Karnataka",
-  "Kerala",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Manipur",
-  "Meghalaya",
-  "Mizoram",
-  "Nagaland",
-  "Odisha",
-  "Punjab",
-  "Rajasthan",
-  "Sikkim",
-  "Tamil Nadu",
-  "Telangana",
-  "Tripura",
-  "Uttarakhand",
-  "Uttar Pradesh",
-  "West Bengal",
-  "Andaman and Nicobar Islands",
-  "Chandigarh",
-  "Dadra and Nagar Haveli",
-  "Daman and Diu",
-  "Delhi",
-  "Lakshadweep",
-  "Puducherry",
-];
+const arrOptions = ["Profile", "Balance", "Logout"];
 const Test = () => {
+  const [open, setOpen] = useState(false);
   return (
     <Box>
-      <Autocomplete
-        sx={{ width: 300 }}
-        options={state}
-        renderInput={(params) => (
-          <TextField {...params} label="List of States" />
-        )}
-      />
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Drawer anchor="bottom" open={open} onClose={() => setOpen(false)}>
+        <List>
+          {arrOptions.map((elm) => (
+            <ListItemButton onClick={() => setOpen(false)}>
+              <ListItemText primary={elm} />
+            </ListItemButton>
+          ))}
+        </List>
+      </Drawer>
     </Box>
   );
 };
