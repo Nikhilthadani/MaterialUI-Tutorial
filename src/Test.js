@@ -1,78 +1,24 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { Box } from "@mui/system";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
 
 const Test = () => {
   return (
     <Box>
-      <Grid container spacing={3}>
-        <Grid
-          sx={{ background: "yellow" }}
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          xl={2}
-        >
-          Item{" "}
-        </Grid>
-        <Grid
-          sx={{ background: "yellow" }}
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          xl={2}
-        >
-          Item{" "}
-        </Grid>
-        <Grid
-          sx={{ background: "yellow" }}
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          xl={2}
-        >
-          Item{" "}
-        </Grid>
-        <Grid
-          sx={{ background: "yellow" }}
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          xl={2}
-        >
-          Item{" "}
-        </Grid>
-        <Grid
-          sx={{ background: "yellow" }}
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          xl={2}
-        >
-          Item{" "}
-        </Grid>
-        <Grid
-          sx={{ background: "yellow" }}
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          xl={2}
-        >
-          Item{" "}
-        </Grid>
-      </Grid>
+      <AppBar>
+        <Toolbar>
+          <IconButton onClick={() => alert("Icon Selected")}>
+            {" "}
+            <AccountCircleIcon />
+          </IconButton>
+          <IconButton>
+            {" "}
+            <ArrowCircleDownIcon color="error" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
     </Box>
   );
 };
