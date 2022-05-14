@@ -1,16 +1,18 @@
 import React from "react";
+import { Box, styled, Typography } from "@mui/material";
 
-import { Box, Typography, useTheme } from "@mui/material";
+const CustomizedTypography = styled(Typography)`
+  color: #000055;
 
+  :hover {
+    color: #75125c;
+    background: #afafaf;
+  }
+`;
 const Test = () => {
-  const theme = useTheme();
-  console.log(theme);
-
   return (
     <Box>
-      <Typography variant="h1" color="primary">
-        Hello World
-      </Typography>
+      <CustomizedTypography variant="h5">Hello World</CustomizedTypography>
     </Box>
   );
 };
