@@ -1,24 +1,16 @@
 import React from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
-import { Box } from "@mui/system";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
+
+import { Box, Typography, useTheme } from "@mui/material";
 
 const Test = () => {
+  const theme = useTheme();
+  console.log(theme);
+
   return (
     <Box>
-      <AppBar>
-        <Toolbar>
-          <IconButton onClick={() => alert("Icon Selected")}>
-            {" "}
-            <AccountCircleIcon />
-          </IconButton>
-          <IconButton>
-            {" "}
-            <ArrowCircleDownIcon color="error" />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <Typography variant="h1" color="primary">
+        Hello World
+      </Typography>
     </Box>
   );
 };
