@@ -1,25 +1,28 @@
-import { AppBar, styled } from "@mui/material";
-
-const NavbBar = styled(AppBar)(({ theme }) => ({
-  background: "green",
-  padding: 1, //1px
-  display: "flex",
-  flexDirection: "row",
-  [theme.breakpoints.down("md")]: {
-    background: "red",
-    flexDirection: "column",
-  },
-}));
+import {
+  Button,
+  CssBaseline,
+  Switch,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from "@mui/material";
+import { useState } from "react";
+import { darkPalette, lightPalette } from "./lib";
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const theme = createTheme(darkMode ? darkPalette : lightPalette);
   return (
-    <div>
-      <NavbBar sx={{ padding: 1 }}>
-        {" "}
-        {[1, 2, 3, 4, 5].map((item) => (
-          <div key={item}>{item}</div>
-        ))}
-      </NavbBar>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Switch
+        checked={darkMode}
+        onChange={() => setDarkMode((prev) => !prev)}
+      />
+      <Typography>
+        Hello With {darkMode ? "Dark Mode" : "Light Mode"}
+      </Typography>
+      <Button variant="contained">Hello</Button>
+    </ThemeProvider>
   );
 };
 
